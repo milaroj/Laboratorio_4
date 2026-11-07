@@ -1,0 +1,30 @@
+==27604== NVPROF is profiling process 27604, command: ./softmax_cuda --precision fp16 --n 500 --reps 10000 --measure kernel
+==27604== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
+==27604== Profiling application: ./softmax_cuda --precision fp16 --n 500 --reps 10000 --measure kernel
+==27604== Profiling result:
+"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
+,%,us,,us,us,us,
+"GPU activities",99.998381,260654.912000,60000,4.344000,4.270000,6.979000,"void softmax_kernel<__half>(__half const *, __half*, int)"
+"GPU activities",0.000959,2.500000,1,2.500000,2.500000,2.500000,"[CUDA memcpy HtoD]"
+"GPU activities",0.000659,1.719000,1,1.719000,1.719000,1.719000,"[CUDA memcpy DtoH]"
+"API calls",87.687490,2234941.472000,60000,37.249000,33.074000,886.421000,"cudaLaunchKernel"
+"API calls",12.203934,311048.695000,3,103682.898000,42.761000,310842.963000,"cudaFree"
+"API calls",0.034777,886.369000,2,443.184000,20.521000,865.848000,"cudaMalloc"
+"API calls",0.032012,815.900000,2,407.950000,23.959000,791.941000,"cudaHostAlloc"
+"API calls",0.013138,334.849000,12,27.904000,22.136000,33.334000,"cudaEventRecord"
+"API calls",0.009549,243.390000,2,121.695000,39.896000,203.494000,"cudaFreeHost"
+"API calls",0.007199,183.493000,2,91.746000,75.418000,108.075000,"cudaMemcpy"
+"API calls",0.004306,109.738000,97,1.131000,0.572000,25.625000,"cuDeviceGetAttribute"
+"API calls",0.002358,60.104000,6,10.017000,9.583000,10.312000,"cudaEventSynchronize"
+"API calls",0.001839,46.876000,1,46.876000,46.876000,46.876000,"cudaGetDeviceProperties"
+"API calls",0.001469,37.449000,6,6.241000,5.834000,6.511000,"cudaEventElapsedTime"
+"API calls",0.000493,12.553000,2,6.276000,3.855000,8.698000,"cudaEventCreate"
+"API calls",0.000347,8.855000,2,4.427000,2.552000,6.303000,"cudaEventDestroy"
+"API calls",0.000335,8.542000,1,8.542000,8.542000,8.542000,"cuDeviceTotalMem"
+"API calls",0.000231,5.888000,3,1.962000,1.303000,2.605000,"cuDeviceGetCount"
+"API calls",0.000229,5.831000,6,0.971000,0.885000,1.302000,"cudaGetLastError"
+"API calls",0.000110,2.813000,2,1.406000,1.198000,1.615000,"cuDeviceGet"
+"API calls",0.000063,1.614000,1,1.614000,1.614000,1.614000,"cuDeviceGetName"
+"API calls",0.000053,1.354000,1,1.354000,1.354000,1.354000,"cudaRuntimeGetVersion"
+"API calls",0.000037,0.937000,1,0.937000,0.937000,0.937000,"cudaDriverGetVersion"
+"API calls",0.000031,0.781000,1,0.781000,0.781000,0.781000,"cuDeviceGetUuid"

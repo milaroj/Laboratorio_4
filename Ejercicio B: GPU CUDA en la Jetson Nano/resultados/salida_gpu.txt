@@ -1,0 +1,887 @@
+=== softmax_cuda | fp16 | N=10 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 31.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 20 B por vector
+Calentamiento: 233.750 ms total, 23.375 us/llamada
+Medición 1: 233.666 ms total, 23.3666 us/llamada | GPU 922 MHz
+Medición 2: 233.319 ms total, 23.3319 us/llamada | GPU 922 MHz
+Medición 3: 230.525 ms total, 23.0525 us/llamada | GPU 922 MHz
+Medición 4: 229.613 ms total, 22.9613 us/llamada | GPU 922 MHz
+Medición 5: 233.133 ms total, 23.3133 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.3133 | mín 22.9613 | máx 23.3666
+Verificación contra FP64:
+  suma de la salida = 1.0002151 (|suma-1| = 2.15e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 2.150e-04 | medio 4.695e-05
+  error relativo: máx 2.907e-03 | medio 8.589e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp16 | N=100 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 32.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 200 B por vector
+Calentamiento: 234.716 ms total, 23.472 us/llamada
+Medición 1: 233.259 ms total, 23.3259 us/llamada | GPU 922 MHz
+Medición 2: 233.771 ms total, 23.3771 us/llamada | GPU 922 MHz
+Medición 3: 233.985 ms total, 23.3985 us/llamada | GPU 922 MHz
+Medición 4: 234.514 ms total, 23.4514 us/llamada | GPU 922 MHz
+Medición 5: 235.356 ms total, 23.5356 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.3985 | mín 23.3259 | máx 23.5356
+Verificación contra FP64:
+  suma de la salida = 0.9997867 (|suma-1| = 2.13e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 6.244e-06
+  error relativo: máx 3.269e-03 | medio 9.558e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp16 | N=500 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 32.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 1000 B por vector
+Calentamiento: 235.912 ms total, 23.591 us/llamada
+Medición 1: 232.859 ms total, 23.2859 us/llamada | GPU 922 MHz
+Medición 2: 233.295 ms total, 23.3295 us/llamada | GPU 922 MHz
+Medición 3: 233.214 ms total, 23.3214 us/llamada | GPU 922 MHz
+Medición 4: 231.922 ms total, 23.1922 us/llamada | GPU 922 MHz
+Medición 5: 231.876 ms total, 23.1876 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.2859 | mín 23.1876 | máx 23.3295
+Verificación contra FP64:
+  suma de la salida = 0.9998789 (|suma-1| = 1.21e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 1.135e-06
+  error relativo: máx 7.087e-03 | medio 9.659e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp16 | N=1000 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 32.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 237.494 ms total, 23.749 us/llamada
+Medición 1: 325.823 ms total, 32.5823 us/llamada | GPU 922 MHz
+Medición 2: 434.071 ms total, 43.4071 us/llamada | GPU 922 MHz
+Medición 3: 266.616 ms total, 26.6616 us/llamada | GPU 922 MHz
+Medición 4: 236.760 ms total, 23.6760 us/llamada | GPU 922 MHz
+Medición 5: 235.869 ms total, 23.5869 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 26.6616 | mín 23.5869 | máx 43.4071
+Verificación contra FP64:
+  suma de la salida = 0.9996440 (|suma-1| = 3.56e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 9.243e-06 | medio 6.055e-07
+  error relativo: máx 1.288e-02 | medio 1.269e-03
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp32 | N=10 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 32.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 40 B por vector
+Calentamiento: 234.271 ms total, 23.427 us/llamada
+Medición 1: 229.506 ms total, 22.9506 us/llamada | GPU 922 MHz
+Medición 2: 228.137 ms total, 22.8137 us/llamada | GPU 922 MHz
+Medición 3: 229.289 ms total, 22.9289 us/llamada | GPU 922 MHz
+Medición 4: 229.442 ms total, 22.9442 us/llamada | GPU 922 MHz
+Medición 5: 229.314 ms total, 22.9314 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 22.9314 | mín 22.8137 | máx 22.9506
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.40e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.171e-08 | medio 3.609e-09
+  error relativo: máx 2.255e-07 | medio 8.932e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp32 | N=100 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.0 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 400 B por vector
+Calentamiento: 234.410 ms total, 23.441 us/llamada
+Medición 1: 233.177 ms total, 23.3177 us/llamada | GPU 922 MHz
+Medición 2: 231.607 ms total, 23.1607 us/llamada | GPU 922 MHz
+Medición 3: 231.106 ms total, 23.1106 us/llamada | GPU 922 MHz
+Medición 4: 232.157 ms total, 23.2157 us/llamada | GPU 922 MHz
+Medición 5: 232.853 ms total, 23.2853 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.2157 | mín 23.1106 | máx 23.3177
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 5.53e-10, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 5.653e-09 | medio 3.605e-10
+  error relativo: máx 3.342e-07 | medio 1.082e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp32 | N=500 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 236.105 ms total, 23.611 us/llamada
+Medición 1: 234.462 ms total, 23.4462 us/llamada | GPU 922 MHz
+Medición 2: 234.067 ms total, 23.4067 us/llamada | GPU 922 MHz
+Medición 3: 234.668 ms total, 23.4668 us/llamada | GPU 922 MHz
+Medición 4: 232.596 ms total, 23.2596 us/llamada | GPU 922 MHz
+Medición 5: 232.628 ms total, 23.2628 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.4067 | mín 23.2596 | máx 23.4668
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.73e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.418e-09 | medio 9.417e-11
+  error relativo: máx 3.537e-07 | medio 1.007e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp32 | N=1000 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 4000 B por vector
+Calentamiento: 235.651 ms total, 23.565 us/llamada
+Medición 1: 234.630 ms total, 23.4630 us/llamada | GPU 922 MHz
+Medición 2: 233.858 ms total, 23.3858 us/llamada | GPU 922 MHz
+Medición 3: 232.313 ms total, 23.2313 us/llamada | GPU 922 MHz
+Medición 4: 233.759 ms total, 23.3759 us/llamada | GPU 922 MHz
+Medición 5: 234.691 ms total, 23.4691 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.3858 | mín 23.2313 | máx 23.4691
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 3.54e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.422e-10 | medio 4.994e-11
+  error relativo: máx 3.807e-07 | medio 1.006e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_kernel.csv
+=== softmax_cuda | fp16 | N=10 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.0 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 20 B por vector
+Calentamiento: 780.030 ms total, 78.003 us/llamada
+Medición 1: 775.793 ms total, 77.5793 us/llamada | GPU 922 MHz
+Medición 2: 772.982 ms total, 77.2982 us/llamada | GPU 922 MHz
+Medición 3: 774.142 ms total, 77.4142 us/llamada | GPU 922 MHz
+Medición 4: 771.194 ms total, 77.1194 us/llamada | GPU 922 MHz
+Medición 5: 773.998 ms total, 77.3998 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 77.3998 | mín 77.1194 | máx 77.5793
+Verificación contra FP64:
+  suma de la salida = 1.0002151 (|suma-1| = 2.15e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 2.150e-04 | medio 4.695e-05
+  error relativo: máx 2.907e-03 | medio 8.589e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp16 | N=100 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 200 B por vector
+Calentamiento: 1031.764 ms total, 103.176 us/llamada
+Medición 1: 790.804 ms total, 79.0804 us/llamada | GPU 922 MHz
+Medición 2: 785.753 ms total, 78.5753 us/llamada | GPU 922 MHz
+Medición 3: 779.846 ms total, 77.9846 us/llamada | GPU 922 MHz
+Medición 4: 777.873 ms total, 77.7873 us/llamada | GPU 922 MHz
+Medición 5: 769.751 ms total, 76.9751 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 77.9846 | mín 76.9751 | máx 79.0804
+Verificación contra FP64:
+  suma de la salida = 0.9997867 (|suma-1| = 2.13e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 6.244e-06
+  error relativo: máx 3.269e-03 | medio 9.558e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp16 | N=500 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 1000 B por vector
+Calentamiento: 799.112 ms total, 79.911 us/llamada
+Medición 1: 786.135 ms total, 78.6135 us/llamada | GPU 922 MHz
+Medición 2: 784.178 ms total, 78.4178 us/llamada | GPU 922 MHz
+Medición 3: 784.969 ms total, 78.4969 us/llamada | GPU 922 MHz
+Medición 4: 784.727 ms total, 78.4727 us/llamada | GPU 922 MHz
+Medición 5: 785.504 ms total, 78.5504 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.4969 | mín 78.4178 | máx 78.6135
+Verificación contra FP64:
+  suma de la salida = 0.9998789 (|suma-1| = 1.21e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 1.135e-06
+  error relativo: máx 7.087e-03 | medio 9.659e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp16 | N=1000 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 800.790 ms total, 80.079 us/llamada
+Medición 1: 789.318 ms total, 78.9318 us/llamada | GPU 922 MHz
+Medición 2: 813.481 ms total, 81.3481 us/llamada | GPU 922 MHz
+Medición 3: 791.502 ms total, 79.1502 us/llamada | GPU 922 MHz
+Medición 4: 794.706 ms total, 79.4706 us/llamada | GPU 922 MHz
+Medición 5: 793.731 ms total, 79.3731 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 79.3731 | mín 78.9318 | máx 81.3481
+Verificación contra FP64:
+  suma de la salida = 0.9996440 (|suma-1| = 3.56e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 9.243e-06 | medio 6.055e-07
+  error relativo: máx 1.288e-02 | medio 1.269e-03
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp32 | N=10 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 33.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 40 B por vector
+Calentamiento: 765.653 ms total, 76.565 us/llamada
+Medición 1: 764.313 ms total, 76.4313 us/llamada | GPU 922 MHz
+Medición 2: 765.420 ms total, 76.5420 us/llamada | GPU 922 MHz
+Medición 3: 766.021 ms total, 76.6021 us/llamada | GPU 922 MHz
+Medición 4: 757.911 ms total, 75.7911 us/llamada | GPU 922 MHz
+Medición 5: 764.666 ms total, 76.4666 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 76.4666 | mín 75.7911 | máx 76.6021
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.40e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.171e-08 | medio 3.609e-09
+  error relativo: máx 2.255e-07 | medio 8.932e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp32 | N=100 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 400 B por vector
+Calentamiento: 806.406 ms total, 80.641 us/llamada
+Medición 1: 789.270 ms total, 78.9270 us/llamada | GPU 922 MHz
+Medición 2: 788.926 ms total, 78.8926 us/llamada | GPU 922 MHz
+Medición 3: 787.654 ms total, 78.7654 us/llamada | GPU 922 MHz
+Medición 4: 789.926 ms total, 78.9926 us/llamada | GPU 922 MHz
+Medición 5: 806.549 ms total, 80.6549 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.9270 | mín 78.7654 | máx 80.6549
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 5.53e-10, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 5.653e-09 | medio 3.605e-10
+  error relativo: máx 3.342e-07 | medio 1.082e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp32 | N=500 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 798.799 ms total, 79.880 us/llamada
+Medición 1: 790.827 ms total, 79.0827 us/llamada | GPU 922 MHz
+Medición 2: 783.890 ms total, 78.3890 us/llamada | GPU 922 MHz
+Medición 3: 782.728 ms total, 78.2728 us/llamada | GPU 922 MHz
+Medición 4: 786.658 ms total, 78.6658 us/llamada | GPU 922 MHz
+Medición 5: 787.476 ms total, 78.7476 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.6658 | mín 78.2728 | máx 79.0827
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.73e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.418e-09 | medio 9.417e-11
+  error relativo: máx 3.537e-07 | medio 1.007e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp32 | N=1000 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 4000 B por vector
+Calentamiento: 843.791 ms total, 84.379 us/llamada
+Medición 1: 842.063 ms total, 84.2063 us/llamada | GPU 922 MHz
+Medición 2: 845.836 ms total, 84.5836 us/llamada | GPU 922 MHz
+Medición 3: 839.747 ms total, 83.9747 us/llamada | GPU 922 MHz
+Medición 4: 838.509 ms total, 83.8509 us/llamada | GPU 922 MHz
+Medición 5: 841.333 ms total, 84.1333 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 84.1333 | mín 83.8509 | máx 84.5836
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 3.54e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.422e-10 | medio 4.994e-11
+  error relativo: máx 3.807e-07 | medio 1.006e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_end-to-end.csv
+=== softmax_cuda | fp16 | N=10 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.0 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 20 B por vector
+Calentamiento: 392.769 ms total, 39.277 us/llamada
+Medición 1: 390.934 ms total, 39.0934 us/llamada | GPU 922 MHz
+Medición 2: 389.620 ms total, 38.9620 us/llamada | GPU 922 MHz
+Medición 3: 390.564 ms total, 39.0564 us/llamada | GPU 922 MHz
+Medición 4: 389.061 ms total, 38.9061 us/llamada | GPU 922 MHz
+Medición 5: 392.211 ms total, 39.2211 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 39.0564 | mín 38.9061 | máx 39.2211
+Verificación contra FP64:
+  suma de la salida = 1.0002151 (|suma-1| = 2.15e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 2.150e-04 | medio 4.695e-05
+  error relativo: máx 2.907e-03 | medio 8.589e-04
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=100 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 200 B por vector
+Calentamiento: 394.383 ms total, 39.438 us/llamada
+Medición 1: 393.258 ms total, 39.3258 us/llamada | GPU 922 MHz
+Medición 2: 394.470 ms total, 39.4470 us/llamada | GPU 922 MHz
+Medición 3: 393.644 ms total, 39.3644 us/llamada | GPU 922 MHz
+Medición 4: 394.033 ms total, 39.4033 us/llamada | GPU 922 MHz
+Medición 5: 396.291 ms total, 39.6291 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 39.4033 | mín 39.3258 | máx 39.6291
+Verificación contra FP64:
+  suma de la salida = 0.9997867 (|suma-1| = 2.13e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 6.244e-06
+  error relativo: máx 3.269e-03 | medio 9.558e-04
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=500 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 34.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 1000 B por vector
+Calentamiento: 391.506 ms total, 39.151 us/llamada
+Medición 1: 390.068 ms total, 39.0068 us/llamada | GPU 922 MHz
+Medición 2: 387.205 ms total, 38.7205 us/llamada | GPU 922 MHz
+Medición 3: 386.670 ms total, 38.6670 us/llamada | GPU 922 MHz
+Medición 4: 385.693 ms total, 38.5693 us/llamada | GPU 922 MHz
+Medición 5: 387.534 ms total, 38.7534 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 38.7205 | mín 38.5693 | máx 39.0068
+Verificación contra FP64:
+  suma de la salida = 0.9998789 (|suma-1| = 1.21e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 1.135e-06
+  error relativo: máx 7.087e-03 | medio 9.659e-04
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=1000 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 390.187 ms total, 39.019 us/llamada
+Medición 1: 390.262 ms total, 39.0262 us/llamada | GPU 922 MHz
+Medición 2: 387.308 ms total, 38.7308 us/llamada | GPU 922 MHz
+Medición 3: 389.123 ms total, 38.9123 us/llamada | GPU 922 MHz
+Medición 4: 388.991 ms total, 38.8991 us/llamada | GPU 922 MHz
+Medición 5: 390.424 ms total, 39.0424 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 38.9123 | mín 38.7308 | máx 39.0424
+Verificación contra FP64:
+  suma de la salida = 0.9996440 (|suma-1| = 3.56e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 9.243e-06 | medio 6.055e-07
+  error relativo: máx 1.288e-02 | medio 1.269e-03
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=10 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.0 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 40 B por vector
+Calentamiento: 392.181 ms total, 39.218 us/llamada
+Medición 1: 392.189 ms total, 39.2189 us/llamada | GPU 922 MHz
+Medición 2: 391.009 ms total, 39.1009 us/llamada | GPU 922 MHz
+Medición 3: 392.466 ms total, 39.2466 us/llamada | GPU 922 MHz
+Medición 4: 392.223 ms total, 39.2223 us/llamada | GPU 922 MHz
+Medición 5: 392.648 ms total, 39.2648 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 39.2223 | mín 39.1009 | máx 39.2648
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.40e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.171e-08 | medio 3.609e-09
+  error relativo: máx 2.255e-07 | medio 8.932e-08
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=100 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.0 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 400 B por vector
+Calentamiento: 393.865 ms total, 39.386 us/llamada
+Medición 1: 393.687 ms total, 39.3687 us/llamada | GPU 922 MHz
+Medición 2: 389.870 ms total, 38.9870 us/llamada | GPU 922 MHz
+Medición 3: 390.609 ms total, 39.0609 us/llamada | GPU 922 MHz
+Medición 4: 390.380 ms total, 39.0380 us/llamada | GPU 922 MHz
+Medición 5: 391.720 ms total, 39.1720 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 39.0609 | mín 38.9870 | máx 39.3687
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 5.53e-10, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 5.653e-09 | medio 3.605e-10
+  error relativo: máx 3.342e-07 | medio 1.082e-07
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=500 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 387.063 ms total, 38.706 us/llamada
+Medición 1: 387.992 ms total, 38.7992 us/llamada | GPU 922 MHz
+Medición 2: 384.695 ms total, 38.4695 us/llamada | GPU 922 MHz
+Medición 3: 384.011 ms total, 38.4011 us/llamada | GPU 922 MHz
+Medición 4: 383.771 ms total, 38.3771 us/llamada | GPU 922 MHz
+Medición 5: 382.814 ms total, 38.2814 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 38.4011 | mín 38.2814 | máx 38.7992
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.73e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.418e-09 | medio 9.417e-11
+  error relativo: máx 3.537e-07 | medio 1.007e-07
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=1000 | reps=10000 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 4000 B por vector
+Calentamiento: 386.945 ms total, 38.694 us/llamada
+Medición 1: 388.415 ms total, 38.8415 us/llamada | GPU 922 MHz
+Medición 2: 385.803 ms total, 38.5803 us/llamada | GPU 922 MHz
+Medición 3: 386.648 ms total, 38.6648 us/llamada | GPU 922 MHz
+Medición 4: 386.910 ms total, 38.6910 us/llamada | GPU 922 MHz
+Medición 5: 384.795 ms total, 38.4795 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 38.6648 | mín 38.4795 | máx 38.8415
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 3.54e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.422e-10 | medio 4.994e-11
+  error relativo: máx 3.807e-07 | medio 1.006e-07
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=10 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 20 B por vector
+Calentamiento: 1214.097 ms total, 121.410 us/llamada
+Medición 1: 1205.797 ms total, 120.5797 us/llamada | GPU 922 MHz
+Medición 2: 1212.573 ms total, 121.2573 us/llamada | GPU 922 MHz
+Medición 3: 1331.995 ms total, 133.1995 us/llamada | GPU 922 MHz
+Medición 4: 1198.073 ms total, 119.8073 us/llamada | GPU 922 MHz
+Medición 5: 1195.147 ms total, 119.5147 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 120.5797 | mín 119.5147 | máx 133.1995
+Verificación contra FP64:
+  suma de la salida = 1.0002151 (|suma-1| = 2.15e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 2.150e-04 | medio 4.695e-05
+  error relativo: máx 2.907e-03 | medio 8.589e-04
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=100 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 35.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 200 B por vector
+Calentamiento: 1259.577 ms total, 125.958 us/llamada
+Medición 1: 1258.704 ms total, 125.8704 us/llamada | GPU 922 MHz
+Medición 2: 1263.926 ms total, 126.3926 us/llamada | GPU 922 MHz
+Medición 3: 1377.082 ms total, 137.7082 us/llamada | GPU 922 MHz
+Medición 4: 1243.024 ms total, 124.3024 us/llamada | GPU 922 MHz
+Medición 5: 1261.622 ms total, 126.1622 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 126.1622 | mín 124.3024 | máx 137.7082
+Verificación contra FP64:
+  suma de la salida = 0.9997867 (|suma-1| = 2.13e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 6.244e-06
+  error relativo: máx 3.269e-03 | medio 9.558e-04
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=500 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 36.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 1000 B por vector
+Calentamiento: 1435.717 ms total, 143.572 us/llamada
+Medición 1: 1279.485 ms total, 127.9485 us/llamada | GPU 922 MHz
+Medición 2: 1311.478 ms total, 131.1478 us/llamada | GPU 922 MHz
+Medición 3: 1418.462 ms total, 141.8462 us/llamada | GPU 922 MHz
+Medición 4: 1272.044 ms total, 127.2044 us/llamada | GPU 922 MHz
+Medición 5: 1289.686 ms total, 128.9686 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 128.9686 | mín 127.2044 | máx 141.8462
+Verificación contra FP64:
+  suma de la salida = 0.9998789 (|suma-1| = 1.21e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 1.135e-06
+  error relativo: máx 7.087e-03 | medio 9.659e-04
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=1000 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 36.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 1483.259 ms total, 148.326 us/llamada
+Medición 1: 1521.189 ms total, 152.1189 us/llamada | GPU 922 MHz
+Medición 2: 1336.817 ms total, 133.6817 us/llamada | GPU 922 MHz
+Medición 3: 1453.361 ms total, 145.3361 us/llamada | GPU 922 MHz
+Medición 4: 1329.021 ms total, 132.9021 us/llamada | GPU 922 MHz
+Medición 5: 1337.899 ms total, 133.7899 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 133.7899 | mín 132.9021 | máx 152.1189
+Verificación contra FP64:
+  suma de la salida = 0.9996440 (|suma-1| = 3.56e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 9.243e-06 | medio 6.055e-07
+  error relativo: máx 1.288e-02 | medio 1.269e-03
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=10 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 36.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 40 B por vector
+Calentamiento: 1361.450 ms total, 136.145 us/llamada
+Medición 1: 1201.354 ms total, 120.1354 us/llamada | GPU 922 MHz
+Medición 2: 1188.991 ms total, 118.8991 us/llamada | GPU 922 MHz
+Medición 3: 1312.113 ms total, 131.2113 us/llamada | GPU 922 MHz
+Medición 4: 1184.618 ms total, 118.4618 us/llamada | GPU 922 MHz
+Medición 5: 1186.785 ms total, 118.6785 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 118.8991 | mín 118.4618 | máx 131.2113
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.40e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.171e-08 | medio 3.609e-09
+  error relativo: máx 2.255e-07 | medio 8.932e-08
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=100 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 37.0 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 400 B por vector
+Calentamiento: 1262.181 ms total, 126.218 us/llamada
+Medición 1: 1265.141 ms total, 126.5141 us/llamada | GPU 922 MHz
+Medición 2: 1260.849 ms total, 126.0849 us/llamada | GPU 922 MHz
+Medición 3: 1370.730 ms total, 137.0730 us/llamada | GPU 922 MHz
+Medición 4: 1232.900 ms total, 123.2900 us/llamada | GPU 922 MHz
+Medición 5: 1235.921 ms total, 123.5921 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 126.0849 | mín 123.2900 | máx 137.0730
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 5.53e-10, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 5.653e-09 | medio 3.605e-10
+  error relativo: máx 3.342e-07 | medio 1.082e-07
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=500 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 37.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 1318.678 ms total, 131.868 us/llamada
+Medición 1: 1290.207 ms total, 129.0207 us/llamada | GPU 922 MHz
+Medición 2: 1277.142 ms total, 127.7142 us/llamada | GPU 922 MHz
+Medición 3: 1415.931 ms total, 141.5931 us/llamada | GPU 922 MHz
+Medición 4: 1253.788 ms total, 125.3788 us/llamada | GPU 922 MHz
+Medición 5: 1288.699 ms total, 128.8699 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 128.8699 | mín 125.3788 | máx 141.5931
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.73e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.418e-09 | medio 9.417e-11
+  error relativo: máx 3.537e-07 | medio 1.007e-07
+Resultado: CORRECTO
+=== softmax_cuda | fp32 | N=1000 | reps=10000 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 37.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 4000 B por vector
+Calentamiento: 1695.123 ms total, 169.512 us/llamada
+Medición 1: 1511.621 ms total, 151.1621 us/llamada | GPU 922 MHz
+Medición 2: 1512.731 ms total, 151.2731 us/llamada | GPU 922 MHz
+Medición 3: 1655.220 ms total, 165.5220 us/llamada | GPU 922 MHz
+Medición 4: 1400.865 ms total, 140.0865 us/llamada | GPU 922 MHz
+Medición 5: 1429.037 ms total, 142.9037 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 151.1621 | mín 140.0865 | máx 165.5220
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 3.54e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.422e-10 | medio 4.994e-11
+  error relativo: máx 3.807e-07 | medio 1.006e-07
+Resultado: CORRECTO
+=== softmax_cuda | fp16 | N=10 | reps=129281 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 37.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 20 B por vector
+Calentamiento: 2982.908 ms total, 23.073 us/llamada
+Medición 1: 2966.432 ms total, 22.9456 us/llamada | GPU 922 MHz
+Medición 2: 2964.895 ms total, 22.9337 us/llamada | GPU 922 MHz
+Medición 3: 2967.220 ms total, 22.9517 us/llamada | GPU 922 MHz
+Medición 4: 3278.080 ms total, 25.3562 us/llamada | GPU 922 MHz
+Medición 5: 2954.260 ms total, 22.8515 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 22.9456 | mín 22.8515 | máx 25.3562
+Verificación contra FP64:
+  suma de la salida = 1.0002151 (|suma-1| = 2.15e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 2.150e-04 | medio 4.695e-05
+  error relativo: máx 2.907e-03 | medio 8.589e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=100 | reps=128108 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 39.0 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 200 B por vector
+Calentamiento: 2960.947 ms total, 23.113 us/llamada
+Medición 1: 2977.631 ms total, 23.2431 us/llamada | GPU 922 MHz
+Medición 2: 3020.354 ms total, 23.5766 us/llamada | GPU 922 MHz
+Medición 3: 2995.261 ms total, 23.3808 us/llamada | GPU 922 MHz
+Medición 4: 2981.819 ms total, 23.2758 us/llamada | GPU 922 MHz
+Medición 5: 2986.138 ms total, 23.3095 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.3095 | mín 23.2431 | máx 23.5766
+Verificación contra FP64:
+  suma de la salida = 0.9997867 (|suma-1| = 2.13e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 6.244e-06
+  error relativo: máx 3.269e-03 | medio 9.558e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=500 | reps=128958 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 39.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 1000 B por vector
+Calentamiento: 2946.330 ms total, 22.847 us/llamada
+Medición 1: 2930.155 ms total, 22.7218 us/llamada | GPU 922 MHz
+Medición 2: 2932.324 ms total, 22.7386 us/llamada | GPU 922 MHz
+Medición 3: 2933.550 ms total, 22.7481 us/llamada | GPU 922 MHz
+Medición 4: 2943.927 ms total, 22.8286 us/llamada | GPU 922 MHz
+Medición 5: 2939.106 ms total, 22.7912 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 22.7481 | mín 22.7218 | máx 22.8286
+Verificación contra FP64:
+  suma de la salida = 0.9998789 (|suma-1| = 1.21e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 1.135e-06
+  error relativo: máx 7.087e-03 | medio 9.659e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=1000 | reps=100057 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 39.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 2318.728 ms total, 23.174 us/llamada
+Medición 1: 2306.030 ms total, 23.0472 us/llamada | GPU 922 MHz
+Medición 2: 2316.264 ms total, 23.1494 us/llamada | GPU 922 MHz
+Medición 3: 2291.619 ms total, 22.9031 us/llamada | GPU 922 MHz
+Medición 4: 2313.328 ms total, 23.1201 us/llamada | GPU 922 MHz
+Medición 5: 2294.353 ms total, 22.9305 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.0472 | mín 22.9031 | máx 23.1494
+Verificación contra FP64:
+  suma de la salida = 0.9996440 (|suma-1| = 3.56e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 9.243e-06 | medio 6.055e-07
+  error relativo: máx 1.288e-02 | medio 1.269e-03
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=10 | reps=130925 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 40.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 40 B por vector
+Calentamiento: 3244.965 ms total, 24.785 us/llamada
+Medición 1: 3035.702 ms total, 23.1866 us/llamada | GPU 922 MHz
+Medición 2: 3020.955 ms total, 23.0739 us/llamada | GPU 922 MHz
+Medición 3: 2999.626 ms total, 22.9110 us/llamada | GPU 922 MHz
+Medición 4: 3004.329 ms total, 22.9469 us/llamada | GPU 922 MHz
+Medición 5: 3011.626 ms total, 23.0027 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 23.0027 | mín 22.9110 | máx 23.1866
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.40e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.171e-08 | medio 3.609e-09
+  error relativo: máx 2.255e-07 | medio 8.932e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=100 | reps=129210 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 41.0 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 400 B por vector
+Calentamiento: 3030.176 ms total, 23.452 us/llamada
+Medición 1: 3244.058 ms total, 25.1069 us/llamada | GPU 922 MHz
+Medición 2: 2966.189 ms total, 22.9563 us/llamada | GPU 922 MHz
+Medición 3: 2969.976 ms total, 22.9856 us/llamada | GPU 922 MHz
+Medición 4: 2970.995 ms total, 22.9935 us/llamada | GPU 922 MHz
+Medición 5: 2968.465 ms total, 22.9740 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 22.9856 | mín 22.9563 | máx 25.1069
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 5.53e-10, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 5.653e-09 | medio 3.605e-10
+  error relativo: máx 3.342e-07 | medio 1.082e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=500 | reps=128378 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 41.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 2922.646 ms total, 22.766 us/llamada
+Medición 1: 3242.435 ms total, 25.2569 us/llamada | GPU 922 MHz
+Medición 2: 2932.802 ms total, 22.8451 us/llamada | GPU 922 MHz
+Medición 3: 2934.462 ms total, 22.8580 us/llamada | GPU 922 MHz
+Medición 4: 2937.509 ms total, 22.8817 us/llamada | GPU 922 MHz
+Medición 5: 2943.315 ms total, 22.9269 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 22.8817 | mín 22.8451 | máx 25.2569
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.73e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.418e-09 | medio 9.417e-11
+  error relativo: máx 3.537e-07 | medio 1.007e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=1000 | reps=128287 | medida=kernel | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 41.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 4000 B por vector
+Calentamiento: 2985.708 ms total, 23.274 us/llamada
+Medición 1: 2953.529 ms total, 23.0228 us/llamada | GPU 922 MHz
+Medición 2: 2945.552 ms total, 22.9606 us/llamada | GPU 922 MHz
+Medición 3: 2949.283 ms total, 22.9897 us/llamada | GPU 922 MHz
+Medición 4: 2948.558 ms total, 22.9841 us/llamada | GPU 922 MHz
+Medición 5: 2953.295 ms total, 23.0210 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 22.9897 | mín 22.9606 | máx 23.0228
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 3.54e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.422e-10 | medio 4.994e-11
+  error relativo: máx 3.807e-07 | medio 1.006e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=10 | reps=38778 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 42.5 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 20 B por vector
+Calentamiento: 3075.979 ms total, 79.323 us/llamada
+Medición 1: 3019.175 ms total, 77.8579 us/llamada | GPU 922 MHz
+Medición 2: 3051.856 ms total, 78.7007 us/llamada | GPU 922 MHz
+Medición 3: 3021.595 ms total, 77.9203 us/llamada | GPU 922 MHz
+Medición 4: 3051.558 ms total, 78.6930 us/llamada | GPU 922 MHz
+Medición 5: 3322.955 ms total, 85.6918 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.6930 | mín 77.8579 | máx 85.6918
+Verificación contra FP64:
+  suma de la salida = 1.0002151 (|suma-1| = 2.15e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 2.150e-04 | medio 4.695e-05
+  error relativo: máx 2.907e-03 | medio 8.589e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=100 | reps=38421 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 42.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 200 B por vector
+Calentamiento: 3139.889 ms total, 81.723 us/llamada
+Medición 1: 2974.478 ms total, 77.4180 us/llamada | GPU 922 MHz
+Medición 2: 2978.019 ms total, 77.5102 us/llamada | GPU 922 MHz
+Medición 3: 2972.597 ms total, 77.3691 us/llamada | GPU 922 MHz
+Medición 4: 3000.739 ms total, 78.1015 us/llamada | GPU 922 MHz
+Medición 5: 3254.830 ms total, 84.7149 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 77.5102 | mín 77.3691 | máx 84.7149
+Verificación contra FP64:
+  suma de la salida = 0.9997867 (|suma-1| = 2.13e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 6.244e-06
+  error relativo: máx 3.269e-03 | medio 9.558e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=500 | reps=38211 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 43.0 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 1000 B por vector
+Calentamiento: 3033.114 ms total, 79.378 us/llamada
+Medición 1: 3012.531 ms total, 78.8394 us/llamada | GPU 922 MHz
+Medición 2: 2997.807 ms total, 78.4540 us/llamada | GPU 922 MHz
+Medición 3: 2990.258 ms total, 78.2565 us/llamada | GPU 922 MHz
+Medición 4: 2994.917 ms total, 78.3784 us/llamada | GPU 922 MHz
+Medición 5: 3013.239 ms total, 78.8579 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.4540 | mín 78.2565 | máx 78.8579
+Verificación contra FP64:
+  suma de la salida = 0.9998789 (|suma-1| = 1.21e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 1.135e-06
+  error relativo: máx 7.087e-03 | medio 9.659e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp16 | N=1000 | reps=37662 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 43.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 3207.012 ms total, 85.152 us/llamada
+Medición 1: 2976.290 ms total, 79.0263 us/llamada | GPU 922 MHz
+Medición 2: 2973.228 ms total, 78.9450 us/llamada | GPU 922 MHz
+Medición 3: 2974.142 ms total, 78.9693 us/llamada | GPU 922 MHz
+Medición 4: 2989.090 ms total, 79.3662 us/llamada | GPU 922 MHz
+Medición 5: 2973.221 ms total, 78.9449 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.9693 | mín 78.9449 | máx 79.3662
+Verificación contra FP64:
+  suma de la salida = 0.9996440 (|suma-1| = 3.56e-04, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 9.243e-06 | medio 6.055e-07
+  error relativo: máx 1.288e-02 | medio 1.269e-03
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=10 | reps=39284 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 44.0 C
+Lanzamiento: 1 bloque x 32 hilos | memoria compartida: 128 B | datos: 40 B por vector
+Calentamiento: 3076.174 ms total, 78.306 us/llamada
+Medición 1: 3086.891 ms total, 78.5788 us/llamada | GPU 922 MHz
+Medición 2: 3030.115 ms total, 77.1336 us/llamada | GPU 922 MHz
+Medición 3: 3051.885 ms total, 77.6877 us/llamada | GPU 922 MHz
+Medición 4: 3030.863 ms total, 77.1526 us/llamada | GPU 922 MHz
+Medición 5: 3049.706 ms total, 77.6323 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 77.6323 | mín 77.1336 | máx 78.5788
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.40e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.171e-08 | medio 3.609e-09
+  error relativo: máx 2.255e-07 | medio 8.932e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=100 | reps=37856 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 44.5 C
+Lanzamiento: 1 bloque x 128 hilos | memoria compartida: 128 B | datos: 400 B por vector
+Calentamiento: 3140.523 ms total, 82.960 us/llamada
+Medición 1: 3044.570 ms total, 80.4250 us/llamada | GPU 922 MHz
+Medición 2: 2959.098 ms total, 78.1672 us/llamada | GPU 922 MHz
+Medición 3: 2970.512 ms total, 78.4687 us/llamada | GPU 922 MHz
+Medición 4: 2962.666 ms total, 78.2615 us/llamada | GPU 922 MHz
+Medición 5: 2965.186 ms total, 78.3280 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 78.3280 | mín 78.1672 | máx 80.4250
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 5.53e-10, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 5.653e-09 | medio 3.605e-10
+  error relativo: máx 3.342e-07 | medio 1.082e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=500 | reps=38152 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 44.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 2000 B por vector
+Calentamiento: 3045.901 ms total, 79.836 us/llamada
+Medición 1: 3033.666 ms total, 79.5153 us/llamada | GPU 922 MHz
+Medición 2: 3033.388 ms total, 79.5080 us/llamada | GPU 922 MHz
+Medición 3: 3037.441 ms total, 79.6142 us/llamada | GPU 922 MHz
+Medición 4: 3038.342 ms total, 79.6378 us/llamada | GPU 922 MHz
+Medición 5: 3037.285 ms total, 79.6101 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 79.6101 | mín 79.5080 | máx 79.6378
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 2.73e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.418e-09 | medio 9.417e-11
+  error relativo: máx 3.537e-07 | medio 1.007e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+=== softmax_cuda | fp32 | N=1000 | reps=35650 | medida=end-to-end | semilla=42 ===
+GPU: NVIDIA Tegra X1, sm_53, 1 SM | CUDA runtime 10.2, driver 10.2 | 922 MHz | temp GPU 44.5 C
+Lanzamiento: 1 bloque x 256 hilos | memoria compartida: 128 B | datos: 4000 B por vector
+Calentamiento: 2857.349 ms total, 80.150 us/llamada
+Medición 1: 2850.114 ms total, 79.9471 us/llamada | GPU 922 MHz
+Medición 2: 2862.760 ms total, 80.3018 us/llamada | GPU 922 MHz
+Medición 3: 2864.828 ms total, 80.3598 us/llamada | GPU 922 MHz
+Medición 4: 2848.699 ms total, 79.9074 us/llamada | GPU 922 MHz
+Medición 5: 2852.164 ms total, 80.0046 us/llamada | GPU 922 MHz
+Tiempo por llamada (us): mediana 80.0046 | mín 79.9074 | máx 80.3598
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 3.54e-08, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.422e-10 | medio 4.994e-11
+  error relativo: máx 3.807e-07 | medio 1.006e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia.csv
+nvprof (us)                   |  kernel GPU: prom    mín    máx | memcpy HtoD  DtoH | API: cudaLaunchKernel cudaMemcpy
+fp16 kernel     N=10            |           3.625  3.593  7.084 |       2.344 1.614 |                37.509    100.652
+fp16 kernel     N=100           |           3.512  3.437  6.251 |       2.397 1.615 |                37.907     90.314
+fp16 kernel     N=500           |           4.344  4.270  6.979 |       2.500 1.719 |                37.249     91.746
+fp16 kernel     N=1000          |           5.841  5.781  8.646 |       2.604 1.979 |                37.390     97.502
+fp32 kernel     N=10            |           3.506  3.437  7.187 |       2.500 1.562 |                37.688     91.746
+fp32 kernel     N=100           |           3.388  3.333  6.146 |       2.657 1.667 |                37.689     96.772
+fp32 kernel     N=500           |           4.291  4.218  6.980 |       2.969 1.823 |                37.037     91.043
+fp32 kernel     N=1000          |           5.841  5.730  8.386 |       2.656 1.927 |                37.092     92.215
+fp16 end-to-end N=10            |           3.629  3.593  6.823 |       0.714 0.468 |                40.809     39.267
+fp16 end-to-end N=100           |           3.516  3.489  6.250 |       0.761 0.499 |                40.812     41.679
+fp16 end-to-end N=500           |           4.350  4.270  6.979 |       0.837 0.562 |                42.370     43.757
+fp16 end-to-end N=1000          |           5.844  5.781  8.385 |       0.919 0.648 |                44.238     46.671
+fp32 end-to-end N=10            |           3.512  3.437  6.667 |       0.717 0.471 |                40.804     39.905
+fp32 end-to-end N=100           |           3.395  3.333  6.197 |       0.790 0.526 |                40.792     41.442
+fp32 end-to-end N=500           |           4.288  4.218  6.667 |       0.917 0.648 |                40.638     43.331
+fp32 end-to-end N=1000          |           5.845  5.729  8.021 |       1.086 0.805 |                41.572     54.175
+En la medida "kernel" las copias se hacen una sola vez (entrada inicial y resultado final).
+Resumen en /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_nvprof_resumen.csv
+Reposo: POM_5V_IN 1872 mW | POM_5V_CPU 292 mW | POM_5V_GPU 125 mW (64 muestras)
+prec   medida         N |     t (us) |     P_IN    P_CPU    P_GPU |      E_IN  E_IN-rep |     E_GPU  GR3D   MHz  T GPU
+                        |    mediana |     (mW)     (mW)     (mW) |      (uJ)      (uJ) |      (uJ)   (%)   GPU    máx
+fp16   end-to-end    10 |    78.6930 |     4044     1943      560 |  317.8878  170.5946 |   44.1091     7   921   44.0
+fp16   end-to-end   100 |    77.5102 |     4076     1961      571 |  316.2944  171.4934 |   44.2583     7   921   44.5
+fp16   end-to-end   500 |    78.4540 |     4097     1952      571 |  321.5340  174.2662 |   44.7973     9   921   44.5
+fp16   end-to-end  1000 |    78.9693 |     4134     1961      612 |  326.4229  178.6269 |   48.3029    11   921   45.0
+fp16   kernel        10 |    22.9456 |     4165     2047      570 |   95.5924   52.6488 |   13.0863    20   921   40.0
+fp16   kernel       100 |    23.3095 |     4198     2040      611 |   97.8465   54.1507 |   14.2421    20   921   40.5
+fp16   kernel       500 |    22.7481 |     4292     2075      693 |   97.7674   55.1762 |   15.7644    25   921   41.0
+fp16   kernel      1000 |    23.0472 |     4353     2066      732 |  100.1755   57.1350 |   16.8846    30   921   42.0
+fp32   end-to-end    10 |    77.6323 |     4105     1978      571 |  317.7460  172.5099 |   44.3280     7   921   45.5
+fp32   end-to-end   100 |    78.3280 |     4133     1992      571 |  324.3341  177.4750 |   44.7253     7   921   46.0
+fp32   end-to-end   500 |    79.6101 |     4130     1956      612 |  328.5742  179.6002 |   48.7055     9   921   46.0
+fp32   end-to-end  1000 |    80.0046 |     4176     1963      645 |  333.6933  184.1416 |   51.8356    11   921   46.5
+fp32   kernel        10 |    23.0027 |     4231     2077      611 |   97.5084   54.4338 |   14.0546    20   921   42.0
+fp32   kernel       100 |    22.9856 |     4273     2080      652 |   98.2893   55.2810 |   14.9866    20   921   42.5
+fp32   kernel       500 |    22.8817 |     4355     2084      722 |   99.6861   56.8615 |   16.7180    25   921   43.5
+fp32   kernel      1000 |    22.9897 |     4426     2087      773 |  101.8990   58.8104 |   17.7711    30   921   44.0
+Medianas de 5 mediciones por configuración. Detalle en /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia_detalle.csv; mín/máx en /home/el5859/grupo-5/lab-cap4/ejB/resultados/gpu_energia_resumen.csv

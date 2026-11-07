@@ -5,5 +5,6 @@ Softmax numéricamente estable en punto flotante de 16 bits (FP16) y 32 bits (FP
 ## Contenido
 
 - [A: CPU de la Jetson Nano](<Ejercicio A: CPU de la Jetson Nano/>)
+- [B: GPU CUDA en la Jetson Nano](<Ejercicio B: GPU CUDA en la Jetson Nano/>)
 
 Las instrucciones de compilación y ejecución, los resultados y el análisis están en el README de cada ejercicio. Los datos crudos están en la carpeta `resultados/` de cada uno.

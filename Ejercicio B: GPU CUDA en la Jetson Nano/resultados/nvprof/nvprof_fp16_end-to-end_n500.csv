@@ -1,0 +1,27 @@
+==27688== NVPROF is profiling process 27688, command: ./softmax_cuda --precision fp16 --n 500 --reps 10000 --measure end-to-end
+==27688== Warning: Unified Memory Profiling is not supported on the underlying platform. System requirements for unified memory can be found at: http://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#um-requirements
+==27688== Profiling application: ./softmax_cuda --precision fp16 --n 500 --reps 10000 --measure end-to-end
+==27688== Profiling result:
+"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
+,%,us,,us,us,us,
+"GPU activities",75.651336,261047.615000,60000,4.350000,4.270000,6.979000,"void softmax_kernel<__half>(__half const *, __half*, int)"
+"GPU activities",14.569547,50274.663000,60001,0.837000,0.781000,2.552000,"[CUDA memcpy HtoD]"
+"GPU activities",9.779117,33744.483000,60001,0.562000,0.520000,1.927000,"[CUDA memcpy DtoH]"
+"API calls",64.672610,5250936.679000,120002,43.757000,32.917000,117628.987000,"cudaMemcpy"
+"API calls",31.310967,2542218.490000,60000,42.370000,35.990000,1062.570000,"cudaLaunchKernel"
+"API calls",3.991967,324118.137000,3,108039.379000,45.574000,323908.133000,"cudaFree"
+"API calls",0.010073,817.826000,2,408.913000,24.844000,792.982000,"cudaHostAlloc"
+"API calls",0.008596,697.928000,2,348.964000,20.521000,677.407000,"cudaMalloc"
+"API calls",0.003011,244.483000,2,122.241000,42.448000,202.035000,"cudaFreeHost"
+"API calls",0.001343,109.064000,97,1.124000,0.625000,23.334000,"cuDeviceGetAttribute"
+"API calls",0.000613,49.792000,1,49.792000,49.792000,49.792000,"cudaGetDeviceProperties"
+"API calls",0.000335,27.188000,2,13.594000,3.750000,23.438000,"cudaEventCreate"
+"API calls",0.000128,10.417000,2,5.208000,3.177000,7.240000,"cudaEventDestroy"
+"API calls",0.000104,8.438000,1,8.438000,8.438000,8.438000,"cuDeviceTotalMem"
+"API calls",0.000084,6.824000,3,2.274000,1.719000,3.073000,"cuDeviceGetCount"
+"API calls",0.000068,5.520000,6,0.920000,0.781000,1.042000,"cudaGetLastError"
+"API calls",0.000037,3.020000,2,1.510000,1.197000,1.823000,"cuDeviceGet"
+"API calls",0.000024,1.927000,1,1.927000,1.927000,1.927000,"cuDeviceGetName"
+"API calls",0.000017,1.354000,1,1.354000,1.354000,1.354000,"cudaRuntimeGetVersion"
+"API calls",0.000013,1.094000,1,1.094000,1.094000,1.094000,"cudaDriverGetVersion"
+"API calls",0.000010,0.833000,1,0.833000,0.833000,0.833000,"cuDeviceGetUuid"

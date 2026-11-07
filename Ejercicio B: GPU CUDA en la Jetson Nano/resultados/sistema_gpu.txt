@@ -1,0 +1,8 @@
+fecha: 2026-11-07T17:33:45-06:00
+host: jetson-183
+NV Power Mode: MAXN
+0
+frecuencia GPU actual / min / max (Hz): 921600000 / 921600000 / 921600000
+gobernador GPU: nvhost_podgov
+nucleos CPU en linea: 0-3
+Build cuda_10.2_r440.TC440_70.29663091_0

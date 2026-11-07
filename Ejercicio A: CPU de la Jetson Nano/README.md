@@ -26,11 +26,29 @@ La función es una plantilla con el tipo de almacenamiento `T` (`float` o FP16).
 
 ---
 
-## 2. Compilación y ejecución
+## 2. Reproducción paso a paso
 
-En la Jetson, desde esta carpeta:
+Comandos usados, en orden. Se trabaja en dos terminales: una en la laptop (raíz del repositorio) y otra con sesión SSH en la Jetson. La Jetson del curso se alcanza a través de un *jump host*; la cuenta `el5859` es compartida, así que cada grupo trabaja en su carpeta (`~/grupo-5`).
+
+### 2.1 Copiar el código a la Jetson (laptop, raíz del repositorio)
+
+Crear la carpeta de trabajo:
 
 ```bash
+ssh -J el5859@51.161.8.220:9222 el5859@jetson-183 'mkdir -p ~/grupo-5/lab-cap4/ejA'
+```
+
+Copiar el código y los scripts. Se usa `tar` por `ssh` en lugar de `scp`, porque `scp` interpreta los dos puntos del nombre de la carpeta como un nombre de host:
+
+```bash
+tar -C "Ejercicio A: CPU de la Jetson Nano" -cf - softmax_cpu.cpp medir_cpu.sh energia.py | ssh -J el5859@51.161.8.220:9222 el5859@jetson-183 'tar -C ~/grupo-5/lab-cap4/ejA -xf -'
+```
+
+### 2.2 Compilar y probar (Jetson)
+
+```bash
+ssh -J el5859@51.161.8.220:9222 el5859@jetson-183
+cd ~/grupo-5/lab-cap4/ejA
 g++ -O3 -std=c++17 -march=native softmax_cpu.cpp -o softmax_cpu -lm
 ./softmax_cpu --precision fp16 --n 100 --reps 10000
 ./softmax_cpu --precision fp32 --n 100 --reps 10000
@@ -43,13 +61,60 @@ g++ -O3 -std=c++17 -march=native softmax_cpu.cpp -o softmax_cpu -lm
 | `--seed S` | Semilla de la entrada (por defecto 42) |
 | `--csv archivo.csv` | Agrega una fila de datos crudos por medición |
 
-Todas las mediciones de este README se obtuvieron con un solo script (pide sudo para `tegrastats`):
+### 2.3 Estado del sistema e instrumento de potencia (Jetson)
+
+Modo de potencia:
+
+```bash
+sudo nvpmodel -q
+```
+
+Revisión de `tegrastats`. Sin sudo no aparecen los rieles de potencia (`POM_5V_*`) ni las frecuencias de EMC y GPU, por eso todas las mediciones de energía lo usan con sudo:
+
+```bash
+timeout 3 tegrastats --interval 1000
+sudo timeout 3 tegrastats --interval 1000
+```
+
+### 2.4 Mediciones completas (Jetson, ~4 min)
 
 ```bash
 bash medir_cpu.sh
 ```
 
-El script registra el estado del sistema y hace las corridas de tiempo y de energía. Al final llama a `energia.py`, que cruza cada medición con sus muestras de potencia.
+El script ejecuta, en orden:
+
+1. **Estado del sistema** → `resultados/sistema_cpu.txt`.
+2. **Reposo:** `tegrastats` durante 5 s sin carga.
+3. **Tiempo de la función**, para `p` en {fp16, fp32} y `n` en {10, 100, 500, 1000}:
+   ```bash
+   ./softmax_cpu --precision $p --n $n --reps 10000 --csv resultados/cpu_funcion.csv
+   ```
+4. **Tiempo del programa completo:**
+   ```bash
+   ./softmax_cpu --precision $p --n $n --reps 10000 --measure programa --csv resultados/cpu_programa.csv
+   ```
+5. **Energía:** la función con las repeticiones necesarias para ~3 s por medición, calculadas con el tiempo del paso 3, mientras `tegrastats` graba:
+   ```bash
+   sudo tegrastats --interval 100 --logfile $PWD/resultados/tegrastats/tegra_cpu_${p}_funcion_n${n}.log --start
+   ./softmax_cpu --precision $p --n $n --reps $REPS --csv resultados/cpu_energia.csv
+   sudo tegrastats --stop
+   ```
+   Entre el arranque de `tegrastats` y el programa, y entre el programa y la parada, hay 1 s de margen. El registro necesita ruta absoluta: con `--start`, `tegrastats` corre en segundo plano desde `/`. La hora de inicio y de fin de cada registro se guarda en un archivo `.t0`.
+6. **Potencia y energía por medición:**
+   ```bash
+   python3 energia.py --csv resultados/cpu_energia.csv --logs resultados/tegrastats \
+       --reposo resultados/tegrastats/tegra_reposo.log \
+       --salida resultados/cpu_energia_detalle.csv --resumen resultados/cpu_energia_resumen.csv
+   ```
+
+Toda la salida del programa queda además en `resultados/salida_cpu.txt`.
+
+### 2.5 Traer los resultados al repositorio (laptop, raíz del repositorio)
+
+```bash
+ssh -J el5859@51.161.8.220:9222 el5859@jetson-183 'tar -C ~/grupo-5/lab-cap4/ejA -cf - softmax_cpu.cpp medir_cpu.sh energia.py resultados' | tar -C "Ejercicio A: CPU de la Jetson Nano" -xf -
+```
 
 ---
 

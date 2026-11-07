@@ -1,0 +1,8 @@
+fecha: 2026-11-07T16:29:21-06:00
+host: jetson-183
+NV Power Mode: MAXN
+0
+nucleos en linea: 0-3
+gobernador: schedutil
+frecuencia max CPU (kHz): 1479000
+g++ (Ubuntu/Linaro 7.5.0-3ubuntu1~18.04) 7.5.0

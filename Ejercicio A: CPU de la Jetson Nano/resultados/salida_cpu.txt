@@ -1,0 +1,420 @@
+=== softmax_cpu | fp16 | N=10 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1132 cpu1=1132 cpu2=1132 cpu3=1132 | temp CPU 28.5 C
+Calentamiento: 3.711 ms total, 0.371 us/llamada
+Medición 1: 3.309 ms total, 0.3309 us/llamada
+Medición 2: 3.281 ms total, 0.3281 us/llamada
+Medición 3: 3.267 ms total, 0.3267 us/llamada
+Medición 4: 3.265 ms total, 0.3265 us/llamada
+Medición 5: 3.279 ms total, 0.3279 us/llamada
+Tiempo por llamada (us): mediana 0.3279 | mín 0.3265 | máx 0.3309
+Verificación contra FP64:
+  suma de la salida = 1.0000696 (|suma-1| = 6.96e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.103e-04 | medio 3.256e-05
+  error relativo: máx 1.255e-03 | medio 4.306e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp16 | N=100 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 28.5 C
+Calentamiento: 30.922 ms total, 3.092 us/llamada
+Medición 1: 30.937 ms total, 3.0937 us/llamada
+Medición 2: 30.881 ms total, 3.0881 us/llamada
+Medición 3: 30.899 ms total, 3.0899 us/llamada
+Medición 4: 30.910 ms total, 3.0910 us/llamada
+Medición 5: 30.873 ms total, 3.0873 us/llamada
+Tiempo por llamada (us): mediana 3.0899 | mín 3.0873 | máx 3.0937
+Verificación contra FP64:
+  suma de la salida = 0.9999301 (|suma-1| = 6.99e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 5.693e-06
+  error relativo: máx 1.484e-03 | medio 4.543e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp16 | N=500 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 31.0 C
+Calentamiento: 153.866 ms total, 15.387 us/llamada
+Medición 1: 153.812 ms total, 15.3812 us/llamada
+Medición 2: 153.802 ms total, 15.3802 us/llamada
+Medición 3: 153.784 ms total, 15.3784 us/llamada
+Medición 4: 153.812 ms total, 15.3812 us/llamada
+Medición 5: 153.812 ms total, 15.3812 us/llamada
+Tiempo por llamada (us): mediana 15.3812 | mín 15.3784 | máx 15.3812
+Verificación contra FP64:
+  suma de la salida = 1.0000235 (|suma-1| = 2.35e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 9.582e-07
+  error relativo: máx 4.359e-03 | medio 6.315e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp16 | N=1000 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 30.5 C
+Calentamiento: 307.390 ms total, 30.739 us/llamada
+Medición 1: 307.340 ms total, 30.7340 us/llamada
+Medición 2: 307.333 ms total, 30.7333 us/llamada
+Medición 3: 307.335 ms total, 30.7335 us/llamada
+Medición 4: 307.381 ms total, 30.7381 us/llamada
+Medición 5: 307.315 ms total, 30.7315 us/llamada
+Tiempo por llamada (us): mediana 30.7335 | mín 30.7315 | máx 30.7381
+Verificación contra FP64:
+  suma de la salida = 1.0000030 (|suma-1| = 2.98e-06, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.789e-06 | medio 4.525e-07
+  error relativo: máx 1.001e-02 | medio 9.259e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp32 | N=10 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 30.5 C
+Calentamiento: 3.071 ms total, 0.307 us/llamada
+Medición 1: 3.077 ms total, 0.3077 us/llamada
+Medición 2: 3.076 ms total, 0.3076 us/llamada
+Medición 3: 3.077 ms total, 0.3077 us/llamada
+Medición 4: 3.088 ms total, 0.3088 us/llamada
+Medición 5: 3.057 ms total, 0.3057 us/llamada
+Tiempo por llamada (us): mediana 0.3077 | mín 0.3057 | máx 0.3088
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 4.19e-09, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 9.212e-09 | medio 2.290e-09
+  error relativo: máx 2.806e-07 | medio 5.425e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp32 | N=100 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 30.5 C
+Calentamiento: 27.512 ms total, 2.751 us/llamada
+Medición 1: 27.455 ms total, 2.7455 us/llamada
+Medición 2: 27.465 ms total, 2.7465 us/llamada
+Medición 3: 27.458 ms total, 2.7458 us/llamada
+Medición 4: 27.456 ms total, 2.7456 us/llamada
+Medición 5: 27.457 ms total, 2.7457 us/llamada
+Tiempo por llamada (us): mediana 2.7457 | mín 2.7455 | máx 2.7465
+Verificación contra FP64:
+  suma de la salida = 0.9999997 (|suma-1| = 3.09e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 2.927e-08 | medio 3.094e-09
+  error relativo: máx 5.997e-07 | medio 3.183e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp32 | N=500 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 29.5 C
+Calentamiento: 136.760 ms total, 13.676 us/llamada
+Medición 1: 136.692 ms total, 13.6692 us/llamada
+Medición 2: 136.704 ms total, 13.6704 us/llamada
+Medición 3: 136.653 ms total, 13.6653 us/llamada
+Medición 4: 136.680 ms total, 13.6680 us/llamada
+Medición 5: 136.661 ms total, 13.6661 us/llamada
+Tiempo por llamada (us): mediana 13.6680 | mín 13.6653 | máx 13.6704
+Verificación contra FP64:
+  suma de la salida = 1.0000003 (|suma-1| = 3.40e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 5.170e-09 | medio 6.791e-10
+  error relativo: máx 6.393e-07 | medio 3.210e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp32 | N=1000 | reps=10000 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 30.0 C
+Calentamiento: 273.428 ms total, 27.343 us/llamada
+Medición 1: 273.407 ms total, 27.3407 us/llamada
+Medición 2: 273.392 ms total, 27.3392 us/llamada
+Medición 3: 273.368 ms total, 27.3368 us/llamada
+Medición 4: 273.381 ms total, 27.3381 us/llamada
+Medición 5: 273.380 ms total, 27.3380 us/llamada
+Tiempo por llamada (us): mediana 27.3381 | mín 27.3368 | máx 27.3407
+Verificación contra FP64:
+  suma de la salida = 1.0000004 (|suma-1| = 4.46e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 3.513e-09 | medio 4.457e-10
+  error relativo: máx 7.550e-07 | medio 4.352e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_funcion.csv
+=== softmax_cpu | fp16 | N=10 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 31.0 C
+Calentamiento: 3.313 ms total, 0.331 us/llamada
+Medición 1: 3.273 ms total, 0.3273 us/llamada
+Medición 2: 3.253 ms total, 0.3253 us/llamada
+Medición 3: 3.272 ms total, 0.3272 us/llamada
+Medición 4: 3.282 ms total, 0.3282 us/llamada
+Medición 5: 3.265 ms total, 0.3265 us/llamada
+Tiempo por llamada (us): mediana 0.3272 | mín 0.3253 | máx 0.3282
+Verificación contra FP64:
+  suma de la salida = 1.0000696 (|suma-1| = 6.96e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.103e-04 | medio 3.256e-05
+  error relativo: máx 1.255e-03 | medio 4.306e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp16 | N=100 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 31.0 C
+Calentamiento: 30.975 ms total, 3.097 us/llamada
+Medición 1: 30.898 ms total, 3.0898 us/llamada
+Medición 2: 30.898 ms total, 3.0898 us/llamada
+Medición 3: 30.897 ms total, 3.0897 us/llamada
+Medición 4: 30.923 ms total, 3.0923 us/llamada
+Medición 5: 30.905 ms total, 3.0905 us/llamada
+Tiempo por llamada (us): mediana 3.0898 | mín 3.0897 | máx 3.0923
+Verificación contra FP64:
+  suma de la salida = 0.9999301 (|suma-1| = 6.99e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 5.693e-06
+  error relativo: máx 1.484e-03 | medio 4.543e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp16 | N=500 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1132 cpu1=1132 cpu2=1132 cpu3=1132 | temp CPU 30.5 C
+Calentamiento: 154.304 ms total, 15.430 us/llamada
+Medición 1: 153.888 ms total, 15.3888 us/llamada
+Medición 2: 153.885 ms total, 15.3885 us/llamada
+Medición 3: 153.879 ms total, 15.3879 us/llamada
+Medición 4: 153.905 ms total, 15.3905 us/llamada
+Medición 5: 153.870 ms total, 15.3870 us/llamada
+Tiempo por llamada (us): mediana 15.3885 | mín 15.3870 | máx 15.3905
+Verificación contra FP64:
+  suma de la salida = 1.0000235 (|suma-1| = 2.35e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 9.582e-07
+  error relativo: máx 4.359e-03 | medio 6.315e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp16 | N=1000 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 30.0 C
+Calentamiento: 307.508 ms total, 30.751 us/llamada
+Medición 1: 307.445 ms total, 30.7445 us/llamada
+Medición 2: 307.448 ms total, 30.7448 us/llamada
+Medición 3: 307.441 ms total, 30.7441 us/llamada
+Medición 4: 307.435 ms total, 30.7435 us/llamada
+Medición 5: 308.871 ms total, 30.8871 us/llamada
+Tiempo por llamada (us): mediana 30.7445 | mín 30.7435 | máx 30.8871
+Verificación contra FP64:
+  suma de la salida = 1.0000030 (|suma-1| = 2.98e-06, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.789e-06 | medio 4.525e-07
+  error relativo: máx 1.001e-02 | medio 9.259e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp32 | N=10 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 31.5 C
+Calentamiento: 3.111 ms total, 0.311 us/llamada
+Medición 1: 3.071 ms total, 0.3071 us/llamada
+Medición 2: 3.090 ms total, 0.3090 us/llamada
+Medición 3: 3.091 ms total, 0.3091 us/llamada
+Medición 4: 3.099 ms total, 0.3099 us/llamada
+Medición 5: 3.135 ms total, 0.3135 us/llamada
+Tiempo por llamada (us): mediana 0.3091 | mín 0.3071 | máx 0.3135
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 4.19e-09, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 9.212e-09 | medio 2.290e-09
+  error relativo: máx 2.806e-07 | medio 5.425e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp32 | N=100 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 31.5 C
+Calentamiento: 27.526 ms total, 2.753 us/llamada
+Medición 1: 27.472 ms total, 2.7472 us/llamada
+Medición 2: 27.475 ms total, 2.7475 us/llamada
+Medición 3: 27.510 ms total, 2.7510 us/llamada
+Medición 4: 27.475 ms total, 2.7475 us/llamada
+Medición 5: 27.473 ms total, 2.7473 us/llamada
+Tiempo por llamada (us): mediana 2.7475 | mín 2.7472 | máx 2.7510
+Verificación contra FP64:
+  suma de la salida = 0.9999997 (|suma-1| = 3.09e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 2.927e-08 | medio 3.094e-09
+  error relativo: máx 5.997e-07 | medio 3.183e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp32 | N=500 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1479 cpu1=1479 cpu2=1479 cpu3=1479 | temp CPU 29.5 C
+Calentamiento: 136.899 ms total, 13.690 us/llamada
+Medición 1: 136.788 ms total, 13.6788 us/llamada
+Medición 2: 136.787 ms total, 13.6787 us/llamada
+Medición 3: 136.761 ms total, 13.6761 us/llamada
+Medición 4: 136.794 ms total, 13.6794 us/llamada
+Medición 5: 137.081 ms total, 13.7081 us/llamada
+Tiempo por llamada (us): mediana 13.6788 | mín 13.6761 | máx 13.7081
+Verificación contra FP64:
+  suma de la salida = 1.0000003 (|suma-1| = 3.40e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 5.170e-09 | medio 6.791e-10
+  error relativo: máx 6.393e-07 | medio 3.210e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp32 | N=1000 | reps=10000 | medida=programa | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=1036 cpu1=1036 cpu2=1036 cpu3=1036 | temp CPU 30.5 C
+Calentamiento: 273.998 ms total, 27.400 us/llamada
+Medición 1: 273.564 ms total, 27.3564 us/llamada
+Medición 2: 273.522 ms total, 27.3522 us/llamada
+Medición 3: 273.515 ms total, 27.3515 us/llamada
+Medición 4: 273.518 ms total, 27.3518 us/llamada
+Medición 5: 273.545 ms total, 27.3545 us/llamada
+Tiempo por llamada (us): mediana 27.3522 | mín 27.3515 | máx 27.3564
+Verificación contra FP64:
+  suma de la salida = 1.0000004 (|suma-1| = 4.46e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 3.513e-09 | medio 4.457e-10
+  error relativo: máx 7.550e-07 | medio 4.352e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_programa.csv
+=== softmax_cpu | fp16 | N=10 | reps=9146330 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=614 cpu1=614 cpu2=614 cpu3=614 | temp CPU 28.5 C
+Calentamiento: 2995.530 ms total, 0.328 us/llamada
+Medición 1: 2993.666 ms total, 0.3273 us/llamada
+Medición 2: 2993.349 ms total, 0.3273 us/llamada
+Medición 3: 2993.606 ms total, 0.3273 us/llamada
+Medición 4: 2993.377 ms total, 0.3273 us/llamada
+Medición 5: 2993.926 ms total, 0.3273 us/llamada
+Tiempo por llamada (us): mediana 0.3273 | mín 0.3273 | máx 0.3273
+Verificación contra FP64:
+  suma de la salida = 1.0000696 (|suma-1| = 6.96e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 1.103e-04 | medio 3.256e-05
+  error relativo: máx 1.255e-03 | medio 4.306e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp16 | N=100 | reps=970878 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=921 cpu1=921 cpu2=921 cpu3=921 | temp CPU 29.0 C
+Calentamiento: 2999.934 ms total, 3.090 us/llamada
+Medición 1: 2995.945 ms total, 3.0858 us/llamada
+Medición 2: 2998.578 ms total, 3.0885 us/llamada
+Medición 3: 2997.799 ms total, 3.0877 us/llamada
+Medición 4: 2997.314 ms total, 3.0872 us/llamada
+Medición 5: 2997.270 ms total, 3.0872 us/llamada
+Tiempo por llamada (us): mediana 3.0872 | mín 3.0858 | máx 3.0885
+Verificación contra FP64:
+  suma de la salida = 0.9999301 (|suma-1| = 6.99e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 8.065e-05 | medio 5.693e-06
+  error relativo: máx 1.484e-03 | medio 4.543e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp16 | N=500 | reps=195052 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=825 cpu1=825 cpu2=825 cpu3=825 | temp CPU 29.5 C
+Calentamiento: 3001.871 ms total, 15.390 us/llamada
+Medición 1: 2999.291 ms total, 15.3769 us/llamada
+Medición 2: 3000.594 ms total, 15.3836 us/llamada
+Medición 3: 3000.734 ms total, 15.3843 us/llamada
+Medición 4: 3000.647 ms total, 15.3838 us/llamada
+Medición 5: 2999.151 ms total, 15.3762 us/llamada
+Tiempo por llamada (us): mediana 15.3836 | mín 15.3762 | máx 15.3843
+Verificación contra FP64:
+  suma de la salida = 1.0000235 (|suma-1| = 2.35e-05, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 1.553e-05 | medio 9.582e-07
+  error relativo: máx 4.359e-03 | medio 6.315e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp16 | N=1000 | reps=97611 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=825 cpu1=825 cpu2=825 cpu3=825 | temp CPU 30.0 C
+Calentamiento: 3001.418 ms total, 30.749 us/llamada
+Medición 1: 2999.971 ms total, 30.7339 us/llamada
+Medición 2: 2999.945 ms total, 30.7337 us/llamada
+Medición 3: 2999.892 ms total, 30.7331 us/llamada
+Medición 4: 2999.904 ms total, 30.7333 us/llamada
+Medición 5: 2999.861 ms total, 30.7328 us/llamada
+Tiempo por llamada (us): mediana 30.7333 | mín 30.7328 | máx 30.7339
+Verificación contra FP64:
+  suma de la salida = 1.0000030 (|suma-1| = 2.98e-06, tolerancia 5e-03) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 7.789e-06 | medio 4.525e-07
+  error relativo: máx 1.001e-02 | medio 9.259e-04
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp32 | N=10 | reps=9756516 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=710 cpu1=710 cpu2=710 cpu3=710 | temp CPU 30.5 C
+Calentamiento: 2989.095 ms total, 0.306 us/llamada
+Medición 1: 2988.682 ms total, 0.3063 us/llamada
+Medición 2: 2988.686 ms total, 0.3063 us/llamada
+Medición 3: 2987.440 ms total, 0.3062 us/llamada
+Medición 4: 2990.461 ms total, 0.3065 us/llamada
+Medición 5: 2987.505 ms total, 0.3062 us/llamada
+Tiempo por llamada (us): mediana 0.3063 | mín 0.3062 | máx 0.3065
+Verificación contra FP64:
+  suma de la salida = 1.0000000 (|suma-1| = 4.19e-09, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 2, obtenida 2 PASA
+  error absoluto: máx 9.212e-09 | medio 2.290e-09
+  error relativo: máx 2.806e-07 | medio 5.425e-08
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp32 | N=100 | reps=1092561 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=825 cpu1=825 cpu2=825 cpu3=825 | temp CPU 30.5 C
+Calentamiento: 3000.748 ms total, 2.747 us/llamada
+Medición 1: 2999.335 ms total, 2.7452 us/llamada
+Medición 2: 2999.980 ms total, 2.7458 us/llamada
+Medición 3: 2999.330 ms total, 2.7452 us/llamada
+Medición 4: 2999.050 ms total, 2.7450 us/llamada
+Medición 5: 2999.297 ms total, 2.7452 us/llamada
+Tiempo por llamada (us): mediana 2.7452 | mín 2.7450 | máx 2.7458
+Verificación contra FP64:
+  suma de la salida = 0.9999997 (|suma-1| = 3.09e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 29, obtenida 29 PASA
+  error absoluto: máx 2.927e-08 | medio 3.094e-09
+  error relativo: máx 5.997e-07 | medio 3.183e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp32 | N=500 | reps=219493 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=710 cpu1=710 cpu2=710 cpu3=710 | temp CPU 31.0 C
+Calentamiento: 3000.980 ms total, 13.672 us/llamada
+Medición 1: 2999.650 ms total, 13.6663 us/llamada
+Medición 2: 2999.645 ms total, 13.6662 us/llamada
+Medición 3: 2999.646 ms total, 13.6662 us/llamada
+Medición 4: 2999.618 ms total, 13.6661 us/llamada
+Medición 5: 2999.642 ms total, 13.6662 us/llamada
+Tiempo por llamada (us): mediana 13.6662 | mín 13.6661 | máx 13.6663
+Verificación contra FP64:
+  suma de la salida = 1.0000003 (|suma-1| = 3.40e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 5.170e-09 | medio 6.791e-10
+  error relativo: máx 6.393e-07 | medio 3.210e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+=== softmax_cpu | fp32 | N=1000 | reps=109735 | medida=funcion | semilla=42 ===
+Sistema: núcleos en línea 0-3 | gobernador schedutil | frecuencias (MHz): cpu0=614 cpu1=614 cpu2=614 cpu3=614 | temp CPU 31.5 C
+Calentamiento: 3003.933 ms total, 27.374 us/llamada
+Medición 1: 3001.601 ms total, 27.3532 us/llamada
+Medición 2: 3001.711 ms total, 27.3542 us/llamada
+Medición 3: 3001.635 ms total, 27.3535 us/llamada
+Medición 4: 3001.534 ms total, 27.3526 us/llamada
+Medición 5: 3001.607 ms total, 27.3532 us/llamada
+Tiempo por llamada (us): mediana 27.3532 | mín 27.3526 | máx 27.3542
+Verificación contra FP64:
+  suma de la salida = 1.0000004 (|suma-1| = 4.46e-07, tolerancia 1e-05) PASA
+  todos en [0,1]: PASA
+  posición del máximo: referencia 289, obtenida 289 PASA
+  error absoluto: máx 3.513e-09 | medio 4.457e-10
+  error relativo: máx 7.550e-07 | medio 4.352e-07
+Resultado: CORRECTO
+CSV: 5 filas agregadas a /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia.csv
+Reposo: POM_5V_IN 966 mW | POM_5V_CPU 129 mW | POM_5V_GPU 0 mW (55 muestras)
+prec   medida         N |     t (us) |     P_IN    P_CPU    P_GPU |      E_IN  E_IN-rep     E_CPU |    MHz  T(C)
+                        |    mediana |     (mW)     (mW)     (mW) |      (uJ)      (uJ)      (uJ) |          máx
+fp16   funcion       10 |     0.3273 |     2318      911        0 |    0.7587    0.4427    0.2981 |   1479  31.5
+fp16   funcion      100 |     3.0872 |     2318      909        0 |    7.1592    4.1771    2.8063 |   1479  32.5
+fp16   funcion      500 |    15.3836 |     2318      911        0 |   35.6569   20.8030   14.0032 |   1479  32.5
+fp16   funcion     1000 |    30.7333 |     2320      911        0 |   71.2912   41.6168   27.9894 |   1479  32.0
+fp32   funcion       10 |     0.3063 |     2313      902        0 |    0.7088    0.4129    0.2765 |   1479  33.0
+fp32   funcion      100 |     2.7452 |     2318      909        0 |    6.3645    3.7133    2.4954 |   1479  33.5
+fp32   funcion      500 |    13.6662 |     2318      902        0 |   31.6784   18.4833   12.3292 |   1479  33.0
+fp32   funcion     1000 |    27.3532 |     2320      909        0 |   63.4511   37.0415   24.8641 |   1479  33.0
+Medianas de 5 mediciones por configuración. Detalle en /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia_detalle.csv; mín/máx en /home/el5859/grupo-5/lab-cap4/ejA/resultados/cpu_energia_resumen.csv

@@ -1,0 +1,4 @@
+# Ejecutables compilados
+softmax_cpu
+softmax_cuda
+*.o

@@ -59,7 +59,7 @@ $(TEMP_DIR)/%.xo: %.cpp
 
 $(LINK_OUTPUT): $(HLS_KERNEL_FILES)
 	mkdir -p $(BUILD_DIR)
-	v++ -l $(VPP_FLAGS) $(VPP_LDFLAGS) -t $(TARGET) --platform $(PLATFORM) --clock.defaultFreqHz $(KERNEL_FREQ) --temp_dir $(TEMP_DIR) -o'$(LINK_OUTPUT)' $^
+	v++ -l $(VPP_FLAGS) $(VPP_LDFLAGS) --profile.exec all:all -t $(TARGET) --platform $(PLATFORM) --clock.defaultFreqHz $(KERNEL_FREQ) --temp_dir $(TEMP_DIR) -o'$(LINK_OUTPUT)' $^
 
 
 emconfig:$(EMCONFIG_DIR)/emconfig.json

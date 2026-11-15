@@ -14,7 +14,7 @@ void softmax_hls(const data_t x[1000],
     data_t suma = 0;
 
     data_t exp_valores[1000];
-    #pragma HLS ARRAY_PARTITION variable=exp_valores cyclic factor=4 dim=1
+    #pragma HLS ARRAY_PARTITION variable=x cyclic factor=2 dim=1
 
     // 1. Reducción del máximo
     for (int i = 1; i < n; i++) {

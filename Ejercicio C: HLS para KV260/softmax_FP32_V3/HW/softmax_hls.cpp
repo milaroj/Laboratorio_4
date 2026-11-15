@@ -101,7 +101,7 @@ void softmax_hls(
     // Almacenamiento interno de exponenciales
     data_t exp_valores[1000];
 
-    #pragma HLS ARRAY_PARTITION variable=exp_valores cyclic factor=4 dim=1
+    #pragma HLS ARRAY_PARTITION variable=x cyclic factor=2 dim=1
 
     // Comunicación entre exponenciales y suma
     hls::stream<data_t> flujo_exp("flujo_exp");

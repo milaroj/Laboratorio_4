@@ -1,8 +1,8 @@
 # Ejercicio C: Softmax con HLS en la AMD Kria KV260
 
-Implementación de **Softmax estable numéricamente** en una FPGA AMD Kria KV260, mediante **Vitis HLS 2024.2**. Se comparan cuatro variantes FP32 y cuatro tamaños de entrada (`N = 10, 100, 500, 1000`), utilizando como referencia cálculos en FP64 (`double`). Se distinguen la latencia del IP obtenida mediante cosimulación C/RTL, las estimaciones de síntesis HLS y las mediciones realizadas en la Kria: transferencias, tiempo de llamada al kernel con XRT, tiempo total amortizado, potencia, energía y error numérico.
+Implementación de **Softmax estable numéricamente** en una FPGA AMD Kria KV260, mediante **Vitis HLS 2024.2**. Se comparan cuatro variantes en FP32 y FP16 para cuatro tamaños de entrada (`N = 10, 100, 500, 1000`), utilizando como referencia cálculos en FP64 (`double`). Se distinguen la latencia del IP obtenida mediante cosimulación C/RTL, las estimaciones de síntesis HLS y las mediciones realizadas en la Kria: transferencias, tiempo de llamada al kernel con XRT, tiempo total amortizado, potencia, energía y error numérico.
 
-**Alcance de este documento:** los datos medidos **FP32** están completos y validados. Se reserva una sección para **FP16**, cuyos resultados serán incorporados por la persona responsable. Se incluyen la **latencia del IP obtenida mediante cosimulación C/RTL**, los **intervalos de iniciación (II)** y los **recursos estimados en síntesis HLS** de las cuatro variantes FP32. Se presentan por separado de los tiempos medidos en el host. Las secciones de **FP16** permanecen pendientes de completar.
+Las secciones 1 a 9 presentan FP32. La sección 10 reúne las mediciones FP16 y sus reportes de síntesis y cosimulación.
 
 ---
 
@@ -519,64 +519,62 @@ El archivo de llamadas correspondiente se obtiene sustituyendo `_resumen.csv` po
 
 ---
 
-## 10. FP16 — campos reservados
+## 10. Resultados FP16
 
-**Pendiente de incorporar por la persona responsable de FP16.** No se atribuyen resultados, validaciones, optimizaciones ni métricas a FP16 en este documento.
+Las 16 combinaciones de variante y tamaño pasaron la cosimulación y la validación en placa frente a FP64. El [host FP16](SW/FP16/softmax_host.cpp) acepta el `.xclbin`, las repeticiones, el tamaño del vector y las llamadas de calentamiento. Un ejemplo, con la aplicación correspondiente cargada en la Kria, es:
 
-### 10.1 Implementación y reproducción FP16
+```bash
+./softmax_host ./FP16_V3/softmax_v3_fp16.xclbin 30 1000 3
+```
 
-- Describir variantes V0–V3, pragmas utilizados y la interfaz de los `.xclbin` de FP16.
-- Incluir los comandos de CSIM, CSYNTH, COSIM, compilación y empaquetado de FP16.
-- Documentar la ruta del host FP16 y su formato de salida.
+### 10.1 Síntesis y cosimulación
 
-### 10.2 Resultados FP16 en la Kria — pendientes
+Las estimaciones son del kernel completo. El II de un bucle con `PIPELINE` se consulta en el detalle de síntesis. La frecuencia estimada se obtiene del período informado por HLS.
 
-Se reserva **una tabla por versión** con los mismos campos usados en FP32. Los datos de FP16 serán incorporados por la persona responsable; las rayas indican **pendiente**, no mediciones de valor cero.
+| Variante | Latencia máx. de síntesis (ciclos) | II máx. del kernel (ciclos) | Frecuencia estimada (MHz) | LUT | FF | BRAM 18K | URAM | DSP |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| V0 | 38212 | 38213 | 342.47 | 3482 | 2470 | 4 | 0 | 6 |
+| V1 | 9248 | 9249 | 342.47 | 3814 | 2569 | 4 | 0 | 4 |
+| V2 | 9178 | 9179 | 342.47 | 3491 | 2381 | 6 | 0 | 4 |
+| V3 | 9185 | 9186 | 240.56 | 4378 | 3372 | 8 | 0 | 4 |
 
-#### V0 — Secuencial (FP16)
+| Variante | N=10 (ciclos) | N=100 (ciclos) | N=500 (ciclos) | N=1000 (ciclos) |
+|---|---:|---:|---:|---:|
+| V0 | 664 | 4071 | 19275 | 38271 |
+| V1 | 406 | 1209 | 4809 | 9309 |
+| V2 | 328 | 1137 | 4731 | 9237 |
+| V3 | 340 | 1143 | 4743 | 9243 |
 
-| N | H2D lote (µs) | Kernel + XRT (µs) | D2H lote (µs) | Tiempo total (µs) | Potencia (W) | Energía (µJ) | J/elem. | Error máx. | Estado |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
-| 10 | — | — | — | — | — | — | — | — | — |
-| 100 | — | — | — | — | — | — | — | — | — |
-| 500 | — | — | — | — | — | — | — | — | — |
-| 1000 | — | — | — | — | — | — | — | — | — |
+### 10.2 Perfilado en la Kria
 
-#### V1 — PIPELINE (FP16)
+Cada combinación de variante y tamaño se midió en cinco corridas. Cada corrida tuvo 30 llamadas medidas y tres de calentamiento. H2D y D2H se midieron una vez por corrida. El tiempo total del host se dividió entre las 30 llamadas.
 
-| N | H2D lote (µs) | Kernel + XRT (µs) | D2H lote (µs) | Tiempo total (µs) | Potencia (W) | Energía (µJ) | J/elem. | Error máx. | Estado |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
-| 10 | — | — | — | — | — | — | — | — | — |
-| 100 | — | — | — | — | — | — | — | — | — |
-| 500 | — | — | — | — | — | — | — | — | — |
-| 1000 | — | — | — | — | — | — | — | — | — |
+Para estimar la latencia del IP se promediaron los pares completos de inicio y fin de cada traza, después de excluir los primeros tres pares registrados. Quedaron entre 21 y 26 pares útiles por corrida. XRT reportó 99,999 MHz y el monitor estaba conectado al reloj de 199,998 MHz, por lo que las duraciones de la traza se recalcularon con el factor `99.999 / 199.998`.
 
-#### V2 — PIPELINE + ARRAY_PARTITION (FP16)
+Cada celda muestra la mediana [mínimo, máximo] de las cinco corridas.
 
-| N | H2D lote (µs) | Kernel + XRT (µs) | D2H lote (µs) | Tiempo total (µs) | Potencia (W) | Energía (µJ) | J/elem. | Error máx. | Estado |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
-| 10 | — | — | — | — | — | — | — | — | — |
-| 100 | — | — | — | — | — | — | — | — | — |
-| 500 | — | — | — | — | — | — | — | — | — |
-| 1000 | — | — | — | — | — | — | — | — | — |
+| Variante | N | IP estimado (µs/llamada) | H2D (µs/corrida) | D2H (µs/corrida) | Total host (µs/llamada) |
+|---|---:|---:|---:|---:|---:|
+| V0 | 10 | 5.604 [5.395, 10.018] | 5.820 [5.460, 7.951] | 4.850 [3.720, 10.851] | 54.008 [49.532, 63.427] |
+| V0 | 100 | 22.677 [22.504, 23.127] | 5.560 [5.410, 9.080] | 5.160 [4.030, 6.010] | 76.129 [67.363, 77.310] |
+| V0 | 500 | 99.003 [98.668, 99.166] | 5.520 [5.340, 7.900] | 5.010 [4.390, 6.040] | 146.155 [144.927, 152.786] |
+| V0 | 1000 | 193.903 [193.703, 194.341] | 7.770 [5.440, 8.950] | 7.200 [4.650, 8.830] | 243.488 [239.665, 299.238] |
+| V1 | 10 | 4.419 [4.167, 5.778] | 5.890 [5.580, 20.791] | 3.930 [3.750, 7.070] | 49.930 [48.755, 69.126] |
+| V1 | 100 | 8.307 [8.073, 8.540] | 6.690 [5.070, 8.540] | 4.780 [4.160, 5.321] | 55.189 [53.331, 59.660] |
+| V1 | 500 | 26.355 [26.282, 26.679] | 5.780 [5.040, 8.820] | 4.380 [3.710, 5.920] | 71.883 [71.687, 77.607] |
+| V1 | 1000 | 49.265 [49.164, 49.878] | 9.240 [7.050, 13.630] | 4.970 [4.220, 6.600] | 96.950 [95.212, 103.981] |
+| V2 | 10 | 4.121 [3.552, 5.675] | 7.710 [5.320, 13.760] | 5.410 [3.670, 6.830] | 53.464 [45.214, 84.228] |
+| V2 | 100 | 8.033 [7.695, 9.396] | 5.541 [5.380, 6.090] | 3.920 [3.810, 6.450] | 53.494 [51.488, 67.900] |
+| V2 | 500 | 26.020 [25.973, 26.194] | 7.580 [5.430, 8.280] | 5.040 [4.110, 7.450] | 71.295 [70.739, 77.263] |
+| V2 | 1000 | 49.037 [48.679, 49.773] | 7.090 [5.040, 8.930] | 5.660 [5.200, 6.600] | 100.337 [98.761, 134.839] |
+| V3 | 10 | 5.679 [4.537, 7.089] | 9.070 [5.200, 14.830] | 5.460 [4.710, 8.170] | 58.284 [51.673, 134.165] |
+| V3 | 100 | 7.921 [7.736, 8.741] | 5.910 [5.560, 7.310] | 3.900 [3.830, 5.661] | 52.784 [52.669, 69.007] |
+| V3 | 500 | 26.131 [26.059, 27.744] | 7.080 [5.190, 10.340] | 5.550 [4.181, 7.080] | 75.366 [71.586, 120.317] |
+| V3 | 1000 | 48.972 [48.789, 49.526] | 5.780 [4.830, 8.740] | 5.250 [4.000, 7.230] | 98.339 [93.718, 103.115] |
 
-#### V3 — DATAFLOW (FP16)
+Para N=1000, el mayor cambio entre variantes consecutivas ocurrió de V0 a V1 al aplicar `PIPELINE`. La latencia mediana estimada del IP bajó de 193.903 a 49.265 µs por llamada, una reducción del 74,6 %. En síntesis, el uso de LUT subió de 3482 a 3814 y el de FF de 2470 a 2569. El uso de BRAM se mantuvo en cuatro bloques y el de DSP bajó de seis a cuatro.
 
-| N | H2D lote (µs) | Kernel + XRT (µs) | D2H lote (µs) | Tiempo total (µs) | Potencia (W) | Energía (µJ) | J/elem. | Error máx. | Estado |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---:|
-| 10 | — | — | — | — | — | — | — | — | — |
-| 100 | — | — | — | — | — | — | — | — | — |
-| 500 | — | — | — | — | — | — | — | — | — |
-| 1000 | — | — | — | — | — | — | — | — | — |
-
-### 10.4 Recursos y latencia HLS FP16
-
-| Variante | Latencia IP HLS | II | Frecuencia | LUT | FF | DSP | BRAM |
-|---|---|---|---|---|---|---|---|
-| V0 | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| V1 | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| V2 | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
-| V3 | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente | Pendiente |
+Los CSV y las trazas originales están en `SW/FP16/resultados/`. Las 52 corridas complementarias están en `SW/FP16/resultados/complemento_C_FP16/`.
 
 ---
 

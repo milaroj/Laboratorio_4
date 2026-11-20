@@ -1,0 +1,2 @@
+variante,precision,n,reps,warmup,h2d_us,kernel_xrt_lote_us,kernel_xrt_us_por_llamada,d2h_us,total_lote_us,total_us_por_llamada_amortizado,potencia_promedio_w,energia_lote_uj,energia_por_llamada_uj,energia_por_elemento_j,muestras_potencia,error_max,rmse,suma_salida,estado,media_tiempo_llamada_us,desv_tiempo_llamada_us
+V1,FP16,1000,30,3,7.72,2894.765,96.4921666667,4.97,2908.495,96.9498333333,3.48,10121.5626,337.38542,3.3738542e-07,4,6.10754721214e-05,1.51826829368e-05,0.992294847965,PASS,94.7088333333,6.48589053298

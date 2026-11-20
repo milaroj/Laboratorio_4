@@ -1,0 +1,1 @@
+Sensor: /sys/devices/platform/axi/axi:ina260-u14/hwmon/hwmon2
